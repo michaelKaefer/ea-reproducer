@@ -16,6 +16,9 @@ class Product
     #[ORM\Column(type: 'string', length: 255)]
     private $title;
 
+    #[ORM\Column(type: 'boolean')]
+    private bool $sale = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -29,6 +32,18 @@ class Product
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getSale(): ?bool
+    {
+        return $this->sale;
+    }
+
+    public function setSale(bool $sale): self
+    {
+        $this->sale = $sale;
 
         return $this;
     }
