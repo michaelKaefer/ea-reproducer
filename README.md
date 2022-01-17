@@ -1,5 +1,5 @@
 # Run
-Change DATABASE_URL in .env to your likes, then run:
+Create a new branch and change DATABASE_URL in .env to your likes, then run:
 
 ```bash
 composer install
