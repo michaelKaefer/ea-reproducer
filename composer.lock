@@ -1442,7 +1442,7 @@
             "dist": {
                 "type": "path",
                 "url": "../EasyAdminBundle",
-                "reference": "e45a529960697eddf10b869fec9f8b55b573c47d"
+                "reference": "1c0319231db150aeb23dde8f1ba983217d52a009"
             },
             "require": {
                 "doctrine/doctrine-bundle": "^2.5",
