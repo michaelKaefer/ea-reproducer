@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Product;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -14,7 +15,16 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        return parent::index();
+        return $this->render('admin/my-custom-page.html.twig');
+    }
+
+    public function configureAssets(): Assets
+    {
+        return Assets::new()
+            // adds the CSS and JS assets associated to the given Webpack Encore entry
+            // it's equivalent to adding these inside the <head> element:
+            // {{ encore_entry_link_tags('...') }} and {{ encore_entry_script_tags('...') }}
+            ->addWebpackEncoreEntry('app');
     }
 
     public function configureDashboard(): Dashboard
