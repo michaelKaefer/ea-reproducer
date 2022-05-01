@@ -2,18 +2,16 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Product;
+use App\Entity\Tag;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class ProductCrudController extends AbstractCrudController
+class TagCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Product::class;
+        return Tag::class;
     }
 
     public function configureFields(string $pageName): iterable
@@ -21,10 +19,7 @@ class ProductCrudController extends AbstractCrudController
         return [
             IdField::new('id')->setDisabled(),
             TextField::new('title'),
-            BooleanField::new('sale'),
-            CollectionField::new('tags')
-                ->useCrudForm()
-            ,
+            TextField::new('color'),
         ];
     }
 }
