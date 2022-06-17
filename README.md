@@ -1,3 +1,12 @@
+# Run reproducer
+```bash
+git clone git@github.com:michaelKaefer/ea-reproducer.git
+git checkout feature/add-new-button-in-association-field
+composer install
+symfony console doctrine:database:create
+symfony server:start -d
+```
+
 # Create new reproducer
 ```bash
 git checkout main
