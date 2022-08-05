@@ -1,3 +1,10 @@
+# Setup reproducer
+```bash
+symfony console doctrine:database:create
+symfony console doctrine:schema:update --force
+symfony server:start -d
+```
+
 # Create new reproducer
 ```bash
 git checkout main
