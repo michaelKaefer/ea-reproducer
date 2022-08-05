@@ -19,6 +19,10 @@ class Product
     #[ORM\Column(type: 'boolean')]
     private bool $sale = false;
 
+    #[ORM\OneToOne(inversedBy: 'product', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Price $price = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +48,18 @@ class Product
     public function setSale(bool $sale): self
     {
         $this->sale = $sale;
+
+        return $this;
+    }
+
+    public function getPrice(): ?Price
+    {
+        return $this->price;
+    }
+
+    public function setPrice(Price $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }
