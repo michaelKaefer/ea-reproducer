@@ -21,7 +21,7 @@ class Product
 
     #[ORM\OneToOne(inversedBy: 'product', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Price $price = null;
+    private Price $price;
 
     public function getId(): ?int
     {
@@ -52,7 +52,7 @@ class Product
         return $this;
     }
 
-    public function getPrice(): ?Price
+    public function getPrice(): Price
     {
         return $this->price;
     }
