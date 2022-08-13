@@ -27,9 +27,8 @@ class ProductCrudController extends AbstractCrudController
             FormField::addTab('Foo')
                 ->setIcon('phone')
                 ->setHelp('Phone number is preferred'),
-            TextField::new('title'),
             AssociationField::new('price')
-                ->setLabel(false)
+                ->setSortable(false)
                 ->useCrudForm(),
             TextField::new('title'),
         ];
