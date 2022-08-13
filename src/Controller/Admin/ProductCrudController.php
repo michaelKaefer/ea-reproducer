@@ -5,7 +5,6 @@ namespace App\Controller\Admin;
 use App\Entity\Product;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -23,19 +22,16 @@ class ProductCrudController extends AbstractCrudController
             FormField::addTab('one')
                 ->setIcon('phone')
                 ->setHelp('Phone number is preferred'),
-
             IdField::new('id')->setDisabled(),
 
             FormField::addTab('Foo')
                 ->setIcon('phone')
                 ->setHelp('Phone number is preferred'),
-
             TextField::new('title'),
             AssociationField::new('price')
                 ->setLabel(false)
                 ->useCrudForm(),
-//            AssociationField::new('price.amount'),
-//            AssociationField::new('embeddablePrice')
+            TextField::new('title'),
         ];
     }
 }
