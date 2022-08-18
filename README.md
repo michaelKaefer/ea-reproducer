@@ -9,15 +9,14 @@ symfony console doctrine:schema:update --force
 symfony server:start -d
 ```
 
-# Create new reproducer
+# Setup new reproducer
 ```bash
 git checkout main
 composer update
 git add .
 git commit -m 'Updates' .
 git checkout -b my-new-branch
-# If a PR is reproduced: change composer.json to use the PR branch of EA (scroll down for an example)
-# Change DATABASE_URL in .env 
+# Change DATABASE_URL in .env
 symfony console doctrine:database:create
 symfony console doctrine:schema:update --force
 symfony server:start -d
@@ -25,7 +24,8 @@ symfony server:start -d
 
 Now open `.../admin` in your browser.
 
-`composer.json` example:
+# Release reproducer
+If a PR is reproduced change `composer.json` to use the PR branch of EA:
 ```json
     "repositories": [
         {
@@ -36,4 +36,17 @@ Now open `.../admin` in your browser.
     "require": {
         "easycorp/easyadmin-bundle": "feature/typed-properties-dev",
     }
+```
+
+If a bug is reproduced change `composer.json` to use EA by removing:
+```json
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../EasyAdminBundle",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
 ```
