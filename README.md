@@ -1,4 +1,4 @@
-# Setup reproducer
+# Setup existing reproducer
 ```bash
 git clone git@github.com:michaelKaefer/ea-reproducer.git
 cd ea-reproducer
@@ -7,9 +7,10 @@ composer update
 symfony console doctrine:database:create
 symfony console doctrine:schema:update --force
 symfony server:start -d
+symfony open:local
 ```
 
-# Setup new reproducer
+# Create new reproducer
 ```bash
 git checkout main
 composer update
@@ -20,6 +21,7 @@ git checkout -b my-new-branch
 symfony console doctrine:database:create
 symfony console doctrine:schema:update --force
 symfony server:start -d
+symfony open:local
 ```
 
 Now open `.../admin` in your browser.
